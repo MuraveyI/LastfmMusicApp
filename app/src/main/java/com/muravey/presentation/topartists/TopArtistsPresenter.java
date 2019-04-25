@@ -1,7 +1,9 @@
 package com.muravey.presentation.topartists;
 
 public class TopArtistsPresenter implements ITopArtistsContract.Presenter {
-    private ITopArtistsContract.View view;
+
+    private ITopArtistsContract.View  mView;
+
     @Override
     public void onArtistsClick(int position) {
 
@@ -9,6 +11,18 @@ public class TopArtistsPresenter implements ITopArtistsContract.Presenter {
 
     @Override
     public void getArtists() {
+
+    }
+
+    @Override
+    public void attachView(ITopArtistsContract.View view) {
+
+    }
+
+
+    @Override
+    public void detachView() {
+
 
     }
 }

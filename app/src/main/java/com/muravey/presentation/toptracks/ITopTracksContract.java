@@ -1,34 +1,30 @@
 package com.muravey.presentation.toptracks;
 
+import com.muravey.core.mvp.ICoreMvpContract;
 import com.muravey.model.TrackEntity;
 
 import java.util.List;
 
 public interface ITopTracksContract {
 
-    interface View{
+    interface View extends ICoreMvpContract.View<Presenter> {
 
         void showTracks(List<TrackEntity> track);
 
-        void showMessage(String message);
 
-        void openTrack( TrackEntity track);
+        void showError();
 
-        void finish();
-
-        void attachPresenter(Presenter presenter);
+        void openTrackDetails( TrackEntity track);
 
     }
 
-    interface Presenter{
+    interface Presenter extends ICoreMvpContract.Presenter<View> {
 
 
         void onTracksClick(int position);
 
         void getTracks();
 
-        void attachView(View view);
 
-        void detachView();
     }
 }

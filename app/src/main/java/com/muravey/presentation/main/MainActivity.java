@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
         viewPager =  findViewById(R.id.view_pager);
         tabItem = findViewById(R.id.tab_tracks);
         tabItem =  findViewById(R.id.tab_artists);
-
         adapter =  new PagerAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));

@@ -20,6 +20,7 @@ public class TrackActivity extends AppCompatActivity implements ITrackContract.V
         mPresenter = new TrackPresenter();
         mPresenter.attachView(this);
 
+
     }
 
     @Override
@@ -33,7 +34,18 @@ public class TrackActivity extends AppCompatActivity implements ITrackContract.V
     }
 
     @Override
+    public void showMessage(String message) {
+
+    }
+
+    @Override
     public void attachPresenter(ITrackContract.Presenter presenter) {
+        mPresenter =  presenter;
+
+    }
+
+    @Override
+    public void finishView() {
 
     }
 
