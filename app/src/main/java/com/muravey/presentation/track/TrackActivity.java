@@ -7,7 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import com.muravey.R;
 import com.muravey.model.TrackEntity;
 
-import java.util.List;
+import java.util.ArrayList;
+
 
 public class TrackActivity extends AppCompatActivity implements ITrackContract.View {
 
@@ -20,23 +21,8 @@ public class TrackActivity extends AppCompatActivity implements ITrackContract.V
         mPresenter = new TrackPresenter();
         mPresenter.attachView(this);
 
-
     }
 
-    @Override
-    public void showTrack(List<TrackEntity> track) {
-
-    }
-
-    @Override
-    public void openTrackDetails(int id) {
-
-    }
-
-    @Override
-    public void showMessage(String message) {
-
-    }
 
     @Override
     public void attachPresenter(ITrackContract.Presenter presenter) {
@@ -49,8 +35,9 @@ public class TrackActivity extends AppCompatActivity implements ITrackContract.V
 
     }
 
+
     @Override
-    public void finish() {
-        finish();
+    public void openTrackDetails(ArrayList<TrackEntity> trackEntities) {
+
     }
 }

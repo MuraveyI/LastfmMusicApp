@@ -17,7 +17,7 @@ public class TopArtistsFragment extends Fragment implements ITopArtistsContract.
 
     private ITopArtistsContract.Presenter mPresenter;
 
-    public static TopArtistsFragment newInstance(){
+    public static TopArtistsFragment newInstance(String top_artist){
         TopArtistsFragment fragment = new TopArtistsFragment();
         return fragment;
     }

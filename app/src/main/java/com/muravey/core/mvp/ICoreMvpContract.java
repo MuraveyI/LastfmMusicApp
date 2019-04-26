@@ -1,6 +1,6 @@
 package com.muravey.core.mvp;
 
-public class ICoreMvpContract  {
+public interface ICoreMvpContract  {
 
 
     public interface  View<T extends Presenter> {

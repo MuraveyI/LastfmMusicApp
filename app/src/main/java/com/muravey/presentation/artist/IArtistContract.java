@@ -12,18 +12,14 @@ public interface IArtistContract  {
 
         void showArtist(List<TrackArtist>artist);
 
-        void openArtistInfo(int id);
-
-        void showMessage(String message);
-
 
     }
 
     interface Presenter extends ICoreMvpContract.Presenter<View> {
 
-        void openTrackClick(int position);
+        void getArtist();
 
-        void getTrack();
+        void onArtistClick();
 
     }
 

@@ -3,11 +3,6 @@ package com.muravey.presentation.toptracks;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.muravey.R;
-import com.muravey.model.TrackEntity;
-
-import java.util.List;
-
 public class TopTracksActivity extends AppCompatActivity {
 
     private ITopTracksContract.Presenter mPresenter;
@@ -18,7 +13,7 @@ public class TopTracksActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
 
-        TopTracksFragment fragment =  TopTracksFragment.newInstance();
+        TopTracksFragment fragment =  TopTracksFragment.newInstance(" Top Tracks");
 
         getSupportFragmentManager()
                 .beginTransaction()

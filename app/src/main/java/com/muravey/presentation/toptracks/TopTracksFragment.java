@@ -11,13 +11,14 @@ import android.view.ViewGroup;
 import com.muravey.R;
 import com.muravey.model.TrackEntity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TopTracksFragment extends Fragment implements ITopTracksContract.View {
 
     private ITopTracksContract.Presenter  mpresenter;
 
-    public static TopTracksFragment newInstance() {
+    public static TopTracksFragment newInstance(String s) {
         TopTracksFragment fragment = new TopTracksFragment();
         return fragment;
     }
@@ -42,7 +43,7 @@ public class TopTracksFragment extends Fragment implements ITopTracksContract.Vi
 
 
     @Override
-    public void openTrackDetails(TrackEntity track) {
+    public void openTrackDetails(ArrayList<TrackEntity> track) {
 
     }
 

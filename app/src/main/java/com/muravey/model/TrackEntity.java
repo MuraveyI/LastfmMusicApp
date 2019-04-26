@@ -7,7 +7,7 @@ public class TrackEntity {
     private String artist;
     private String image;
 
-    public TrackEntity(int id, String name, String artist, String image) {
+    public TrackEntity() {
         this.id = id;
         this.name = name;
         this.artist = artist;

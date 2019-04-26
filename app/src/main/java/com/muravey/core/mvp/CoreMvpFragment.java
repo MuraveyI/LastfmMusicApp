@@ -29,11 +29,13 @@ public class CoreMvpFragment extends Fragment implements ICoreMvpContract.View {
     @Override
     public void attachPresenter(ICoreMvpContract.Presenter presenter) {
         mPresenter = presenter;
+        mPresenter.attachView(this);
 
     }
 
     @Override
     public void finishView() {
+        getActivity().finish();
 
     }
 }

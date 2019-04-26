@@ -15,7 +15,7 @@ public class TopArtistsActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        TopArtistsFragment fragment = TopArtistsFragment.newInstance();
+        TopArtistsFragment fragment = TopArtistsFragment.newInstance("Top Artist");
 
         getSupportFragmentManager()
                 .beginTransaction()

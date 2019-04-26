@@ -27,16 +27,6 @@ public class ArtistActivity extends AppCompatActivity implements IArtistContract
     }
 
     @Override
-    public void openArtistInfo(int id) {
-
-    }
-
-    @Override
-    public void showMessage(String message) {
-
-    }
-
-    @Override
     public void attachPresenter(IArtistContract.Presenter presenter) {
 
     }
@@ -44,10 +34,5 @@ public class ArtistActivity extends AppCompatActivity implements IArtistContract
     @Override
     public void finishView() {
 
-    }
-
-    @Override
-    public void finish() {
-        finish();
     }
 }

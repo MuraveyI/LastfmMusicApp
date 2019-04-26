@@ -11,13 +11,13 @@ public class TopTracksPresenter  implements ITopTracksContract.Presenter{
     @Override
     public void getTracks() {
         ArrayList<TrackEntity> trackEntities = new ArrayList<>();
-        trackEntities.add(new TrackEntity(1, "name", "artist", "image"));
-        trackEntities.add(new TrackEntity(2, "name", "artist", "image"));
-        trackEntities.add(new TrackEntity(3, "name", "artist", "image"));
-        trackEntities.add(new TrackEntity(4, "name", "artist", "image"));
-        trackEntities.add(new TrackEntity(4, "name", "artist", "image"));
-        trackEntities.add(new TrackEntity(5, "name", "artist", "image"));
-        trackEntities.add(new TrackEntity(6, "name", "artist", "image"));
+        trackEntities.add(new TrackEntity());
+        trackEntities.add(new TrackEntity());
+        trackEntities.add(new TrackEntity());
+        trackEntities.add(new TrackEntity());
+        trackEntities.add(new TrackEntity());
+        trackEntities.add(new TrackEntity());
+        trackEntities.add(new TrackEntity());
 
         if(mView != null){
             mView.showTracks(trackEntities);

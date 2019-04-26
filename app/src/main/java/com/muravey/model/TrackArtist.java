@@ -8,7 +8,7 @@ public class TrackArtist {
 
     private String url;
 
-    public TrackArtist(String name, String mbid, String url) {
+    public TrackArtist() {
         this.name = name;
         this.mbid = mbid;
         this.url = url;

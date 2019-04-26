@@ -1,21 +1,19 @@
 package com.muravey.core.mvp;
 
-public class CoreMvpPresenter  {
-
-    interface View extends ICoreMvpContract.View<Presenter>{
-        void attachPresenter();
-
-        void finishView();
+public class CoreMvpPresenter implements ICoreMvpContract.Presenter {
+    private ICoreMvpContract.View mView;
 
 
+    @Override
+    public void attachView(ICoreMvpContract.View view) {
+        mView = view;
+        mView.attachPresenter(this);
 
     }
-    interface Presenter extends ICoreMvpContract.Presenter<View>{
 
-        void attachView();
+    @Override
+    public void detachView() {
 
-        void detachView();
-
-
+        mView = null;
     }
 }
