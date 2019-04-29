@@ -1,32 +1,26 @@
 package com.muravey.presentation.topartists;
-
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-
 import com.muravey.R;
+import com.muravey.core.mvp.CoreMvpFragment;
 import com.muravey.model.TrackArtist;
 
 import java.util.List;
 
-public class TopArtistsFragment extends Fragment implements ITopArtistsContract.View {
+public class TopArtistsFragment extends CoreMvpFragment<ITopArtistsContract.Presenter> implements ITopArtistsContract.View {
 
-    private ITopArtistsContract.Presenter mPresenter;
-
-    public static TopArtistsFragment newInstance(String top_artist){
+    public static TopArtistsFragment newInstance(String topartist){
         TopArtistsFragment fragment = new TopArtistsFragment();
         return fragment;
     }
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.artists_fragment, container, false);
-        return view;
+    protected int getLayout() {
+        return R.layout.activity_top_artists;
+    }
+
+    @Override
+    protected void initView(View view) {
+
     }
 
     @Override
@@ -40,17 +34,10 @@ public class TopArtistsFragment extends Fragment implements ITopArtistsContract.
     }
 
     @Override
-    public void showMessage(String message) {
+    public void showError() {
 
     }
 
-    @Override
-    public void attachPresenter(ITopArtistsContract.Presenter presenter) {
 
-    }
 
-    @Override
-    public void finishView() {
-
-    }
 }

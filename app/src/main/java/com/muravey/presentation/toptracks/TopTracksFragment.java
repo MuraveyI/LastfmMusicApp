@@ -1,33 +1,22 @@
 package com.muravey.presentation.toptracks;
 
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
+
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.muravey.R;
+import com.muravey.core.mvp.CoreMvpFragment;
 import com.muravey.model.TrackEntity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TopTracksFragment extends Fragment implements ITopTracksContract.View {
+public class TopTracksFragment extends CoreMvpFragment<ITopTracksContract.Presenter>
+        implements ITopTracksContract.View {
 
-    private ITopTracksContract.Presenter  mpresenter;
 
     public static TopTracksFragment newInstance(String s) {
         TopTracksFragment fragment = new TopTracksFragment();
         return fragment;
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.tracks_fragment, container, false);
-        return view;
     }
 
     //region Contract
@@ -47,17 +36,18 @@ public class TopTracksFragment extends Fragment implements ITopTracksContract.Vi
 
     }
 
-
     @Override
-    public void attachPresenter(ITopTracksContract.Presenter presenter) {
-        mpresenter = presenter;
-
+    protected int getLayout() {
+        return R.layout.activity_top_traks;
     }
 
     @Override
-    public void finishView() {
-        getActivity().finish();
+    protected void initView(View view) {
+        //todo init:
 
     }
+
+
     //endregion
 }
+

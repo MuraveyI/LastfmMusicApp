@@ -1,6 +1,7 @@
 package com.muravey.core.mvp;
 
 import android.os.Bundle;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,34 +9,38 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.muravey.R;
+public abstract class CoreMvpFragment<T extends ICoreMvpContract.Presenter> extends Fragment
+        implements ICoreMvpContract.View<T> {
 
-public class CoreMvpFragment extends Fragment implements ICoreMvpContract.View {
 
-    private ICoreMvpContract.Presenter mPresenter;
+    @Nullable
+    protected T  mPresenter;
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+    @LayoutRes
+    protected abstract int getLayout();
+    protected abstract void initView(View view);
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.core_fragment, container, false);
-        return view;
+        return inflater.inflate(getLayout(), container, false);
     }
 
     @Override
-    public void attachPresenter(ICoreMvpContract.Presenter presenter) {
-        mPresenter = presenter;
-        mPresenter.attachView(this);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initView(view);
+    }
 
+    @Override
+    public void attachPresenter(T mPresenter) {
+    this.mPresenter = mPresenter;
     }
 
     @Override
     public void finishView() {
-        getActivity().finish();
-
+        if (getActivity() != null) {
+            getActivity().finish();
+        }
     }
 }

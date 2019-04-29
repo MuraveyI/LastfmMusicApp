@@ -12,6 +12,8 @@ public interface IArtistContract  {
 
         void showArtist(List<TrackArtist>artist);
 
+        void showError();
+
 
     }
 

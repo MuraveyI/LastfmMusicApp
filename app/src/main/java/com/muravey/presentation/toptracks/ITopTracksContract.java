@@ -2,8 +2,6 @@ package com.muravey.presentation.toptracks;
 
 import com.muravey.core.mvp.ICoreMvpContract;
 import com.muravey.model.TrackEntity;
-import com.muravey.presentation.track.TrackPresenter;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,8 +15,6 @@ public interface ITopTracksContract {
         void showError();
 
         void openTrackDetails(ArrayList<TrackEntity> track);
-
-        void attachPresenter(TrackPresenter trackPresenter);
     }
 
     interface Presenter extends ICoreMvpContract.Presenter<View> {

@@ -1,45 +1,49 @@
 package com.muravey.presentation.toptracks;
 
+import com.muravey.core.mvp.CoreMvpPresenter;
+import com.muravey.data.tracks.ITracksRepository;
 import com.muravey.model.TrackEntity;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class TopTracksPresenter  implements ITopTracksContract.Presenter{
+public class TopTracksPresenter extends CoreMvpPresenter<ITopTracksContract.View>
+        implements ITopTracksContract.Presenter {
 
-    private ITopTracksContract.View mView;
+    private ITracksRepository repository;
+
+
+    public TopTracksPresenter(ITracksRepository repository) {
+        this.repository = repository;
+
+    }
+
+    public TopTracksPresenter() {
+    }
+
 
     @Override
     public void getTracks() {
-        ArrayList<TrackEntity> trackEntities = new ArrayList<>();
-        trackEntities.add(new TrackEntity());
-        trackEntities.add(new TrackEntity());
-        trackEntities.add(new TrackEntity());
-        trackEntities.add(new TrackEntity());
-        trackEntities.add(new TrackEntity());
-        trackEntities.add(new TrackEntity());
-        trackEntities.add(new TrackEntity());
+        repository.getTracks(new ITracksRepository.TracksCallback() {
+            @Override
+            public void onSuccess(List<TrackEntity> tracks) {
 
-        if(mView != null){
-            mView.showTracks(trackEntities);
-        }
+                if (mView != null) {
+                    mView.showTracks(tracks);
+                }
+            }
+
+            @Override
+            public void onFailure(String message) {
+                if (mView != null){
+                    mView.showError( );
+                }
+
+            }
+        });
     }
 
     @Override
     public void onTracksClick(int position) {
-
-
-    }
-
-    @Override
-    public void attachView(ITopTracksContract.View view) {
-        mView = view;
-        mView.attachPresenter(this);
-
-    }
-
-    @Override
-    public void detachView() {
-        mView  = null;
 
     }
 }

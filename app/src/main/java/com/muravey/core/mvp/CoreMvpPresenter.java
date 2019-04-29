@@ -1,11 +1,15 @@
 package com.muravey.core.mvp;
 
-public class CoreMvpPresenter implements ICoreMvpContract.Presenter {
-    private ICoreMvpContract.View mView;
+import android.support.annotation.Nullable;
+
+public abstract class CoreMvpPresenter<T extends ICoreMvpContract.View>
+        implements ICoreMvpContract.Presenter<T> {
+    @Nullable
+    protected T mView;
 
 
     @Override
-    public void attachView(ICoreMvpContract.View view) {
+    public void attachView(T view) {
         mView = view;
         mView.attachPresenter(this);
 
@@ -13,7 +17,6 @@ public class CoreMvpPresenter implements ICoreMvpContract.Presenter {
 
     @Override
     public void detachView() {
-
         mView = null;
     }
 }

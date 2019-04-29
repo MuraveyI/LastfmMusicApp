@@ -12,7 +12,7 @@ public interface ITopArtistsContract {
 
         void openArtist (TrackArtist artist);
 
-        void showMessage(String message);
+        void showError();
 
 
     }

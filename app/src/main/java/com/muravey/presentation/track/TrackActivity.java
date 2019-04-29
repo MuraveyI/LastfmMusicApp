@@ -8,6 +8,7 @@ import com.muravey.R;
 import com.muravey.model.TrackEntity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class TrackActivity extends AppCompatActivity implements ITrackContract.View {
@@ -35,6 +36,16 @@ public class TrackActivity extends AppCompatActivity implements ITrackContract.V
 
     }
 
+
+    @Override
+    public void showTracks(List<TrackEntity> trackEntities) {
+
+    }
+
+    @Override
+    public void showError() {
+
+    }
 
     @Override
     public void openTrackDetails(ArrayList<TrackEntity> trackEntities) {

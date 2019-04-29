@@ -27,6 +27,11 @@ public class ArtistActivity extends AppCompatActivity implements IArtistContract
     }
 
     @Override
+    public void showError() {
+
+    }
+
+    @Override
     public void attachPresenter(IArtistContract.Presenter presenter) {
 
     }
